@@ -131,14 +131,14 @@
         
         $name = $nameError = $pass = $passError = $confirm = $confirmError = '';
         
-        // Form submission logic
+      
         if(isset($_POST["btnSave"])) {
             $name = mysqli_real_escape_string($con, $_POST["Username"]);
             $pass = mysqli_real_escape_string($con, $_POST["Pass"]);
             $confirm = mysqli_real_escape_string($con, $_POST["Confirm"]);
             $isValid = true;
 
-            // Validate username
+           
             if($name == '') {
                 $nameError = "Enter Username";
                 $isValid = false;
@@ -151,7 +151,7 @@
                 }
             }
 
-            // Validate password and confirm password
+           
             if($pass == '') {
                 $passError = "Enter password";
                 $isValid = false;
@@ -166,19 +166,19 @@
                 }
             }
 
-            // If all validations pass
+           
             if($isValid) {
-                // 1. Hash the password with SHA256
+                
                 $hash = hash("sha256", $pass);
 
-                // 2. Generate salt
+               
                 $salt = md5(uniqid(rand(), true));
                 $salt = substr($salt, 0, 3);
 
-                // 3. Hash password and salt together
+                
                 $finalPass = hash("sha256", $hash.$salt);
 
-                // Insert the new user into the database
+                
                 $query = "INSERT INTO Users(Username, Password, Salt, RoleId) VALUES('$name', '$finalPass', '$salt', 2)";
                 $result = mysqli_query($con, $query);
                 
@@ -186,7 +186,7 @@
                     echo "<div class='alert'>Error: " . mysqli_error($con) . "</div>";
                 } else {
                     echo "<div class='alert'>Successfully registered!</div>";
-                    header("Location: login.php");  // Redirect to login page
+                    header("Location: login.php");  
                 }
             }
         }

@@ -46,31 +46,31 @@ if(isset($_POST["btnSave"])){
     }
 
     if($isValid){
-        // Special check for admin login
-        if($username == "admin" && $pass == "admin_password"){ // Replace 'admin_password' with the actual admin password
+        
+        if($username == "admin" && $pass == "admin_password"){ 
             $_SESSION["LoggedIN_Admin"] = 1;
             $_SESSION["Username_Admin"] = $username;
-            $_SESSION["UserId_Admin"] = 1; // Admin ID is 1
-            header("Location: Admin/home.php");  // Redirect to Admin dashboard
+            $_SESSION["UserId_Admin"] = 1; 
+            header("Location: Admin/home.php");  
             exit();
         } else {
-            // Check if Username exists and Password is correct for other users
+          
             $query = "SELECT * FROM users WHERE Username='".$username."'";
             $result = mysqli_query($con, $query);
 
-            if(!$result) die(mysqli_error()); // error in query or connection
+            if(!$result) die(mysqli_error()); 
 
             if(mysqli_num_rows($result) == 0){
                 $nameError = "Invalid Username";
             } else {
-                // username exists => continue to check password
+           
                 $row = mysqli_fetch_array($result);
-                // hash the new logging password
+               
                 $hash1 = hash('sha256', $pass);
-                $salt = $row["Salt"]; // salt from the database
+                $salt = $row["Salt"]; 
                 $finalPassword = hash('sha256', $hash1.$salt);
 
-                // Compare the final password with the stored password in the database
+               
                 if($finalPassword == $row["Password"]){
                     if($row["RoleId"] == 1){
                         // Admin login

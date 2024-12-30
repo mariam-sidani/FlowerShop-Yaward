@@ -1,13 +1,13 @@
 <?php
-require 'config.php'; // Make sure the database connection is included
+require 'config.php'; 
 
-// Check if product_id is passed in the URL
+
 if (isset($_GET['product_id'])) {
-    $product_id = intval($_GET['product_id']); // Get the product ID from the URL
+    $product_id = intval($_GET['product_id']); 
 
-    // Fetch product details from the database
+    
     $sql = "SELECT * FROM products WHERE id = ?";
-    $stmt = $con->prepare($sql);  // Use $con instead of $conn
+    $stmt = $con->prepare($sql);  
     if ($stmt) {
         $stmt->bind_param("i", $product_id); 
         $stmt->execute();

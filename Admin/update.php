@@ -1,25 +1,21 @@
 <?php
-// Include database connection file
+
 include('Config.php');
 
-// Initialize variables
 $message = '';
 
-// Handle form submission to update the product
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Collect form data
     $previous_name = $_POST['previous_name'];
     $new_name = $_POST['name'];
     $price = $_POST['price'];
     $discount = $_POST['discount'];
     $description = $_POST['description'];
 
-    // Check if the product with the previous name exists
     $sql = "SELECT * FROM products WHERE name = '$previous_name'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
-        // Update the product with new details
+       
         $update_sql = "UPDATE products 
                        SET name = '$new_name', price = '$price', discount = '$discount', description = '$description'
                        WHERE name = '$previous_name'";

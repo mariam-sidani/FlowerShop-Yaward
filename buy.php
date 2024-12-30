@@ -10,7 +10,7 @@ if (!isset($_GET['product_id']) || empty($_GET['product_id'])) {
 
 $product_id = intval($_GET['product_id']);
 $query = "SELECT * FROM products WHERE id = $product_id";
-$result = mysqli_query($con, $query);  // Use the connection here
+$result = mysqli_query($con, $query);  
 
 if (!$result) {
     die("Database query failed: " . mysqli_error($con));
