@@ -70,7 +70,7 @@
   
 
     <?php
-// Connect to the database
+
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -82,19 +82,17 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Fetch products from the database
 $sql = "SELECT * FROM products";
 $result = $conn->query($sql);
 
-// Check if there are products in the database
 if ($result->num_rows > 0) {
-    // Loop through each product
+   
     while($row = $result->fetch_assoc()) {
         $discount = $row['discount'] ? '-' . $row['discount'] . '%' : '';
-        $image_url = 'Admin/uploads/' . $row['image_url'];  // Add the 'uploads/' directory to the image file name
+        $image_url = 'Admin/uploads/' . $row['image_url'];  
         $name = $row['name'];
         $price = '$' . number_format($row['price'], 2);
-        $id = $row['id'];  // Set the product id here
+        $id = $row['id'];  
         
         echo "
         <div class='box'>
