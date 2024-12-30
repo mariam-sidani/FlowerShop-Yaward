@@ -1,0 +1,125 @@
+/* Login Page Specific Styling */
+body {
+    background: linear-gradient(135deg, #f1f1f1, #e2e2e2);
+    color: #333;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-container {
+    width: 100%;
+    max-width: 450px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .login-form h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    font-size: 1.1rem;
+    color: #555;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .input-group input:focus {
+    border-color: #f4a261;
+    box-shadow: 0 0 10px rgba(244, 162, 97, 0.4);
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .btn-login, .btn-reset {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-login {
+    background-color :rgb(16, 121, 5);
+    color: white;
+  }
+  
+  .btn-login:hover {
+    background-color: #e07b49;
+  }
+  
+  .btn-reset {
+    background-color: #ddd;
+    color: #333;
+  }
+  
+  .btn-reset:hover {
+    background-color: #bbb;
+  }
+  
+  .register-link {
+    margin-top: 20px;
+    font-size: 1.1rem;
+  }
+  
+  .register-btn {
+    color:rgb(16, 121, 5);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .register-btn:hover {
+    color:rgb(11, 77, 4);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .login-container {
+      padding: 30px;
+      width: 90%;
+    }
+  
+    .login-form h2 {
+      font-size: 2rem;
+    }
+  
+    .input-group input {
+      padding: 10px;
+    }
+  
+    .btn-login, .btn-reset {
+      padding: 10px 15px;
+    }
+  }
+  
